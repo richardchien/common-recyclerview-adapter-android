@@ -1,4 +1,4 @@
-Common Adapter for Android
+Common RecyclerView Adapter for Android
 =========
 
 A reusable RecyclerView.Adapter.
