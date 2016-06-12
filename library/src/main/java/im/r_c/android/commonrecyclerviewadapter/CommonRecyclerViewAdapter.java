@@ -1,4 +1,4 @@
-package com.richardchien.android.commonrecyclerviewadapter;
+package im.r_c.android.commonrecyclerviewadapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -57,7 +57,7 @@ public abstract class CommonRecyclerViewAdapter<T> extends RecyclerView.Adapter<
                 }
             });
         }
-        onItemViewAppear(holder, mDataList.get(position));
+        onPostBindViewHolder(holder, mDataList.get(position));
     }
 
     @Override
@@ -65,7 +65,7 @@ public abstract class CommonRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         return mDataList.size();
     }
 
-    public abstract void onItemViewAppear(ViewHolder holder, T t);
+    public abstract void onPostBindViewHolder(ViewHolder holder, T t);
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);

@@ -1,17 +1,36 @@
 # Common RecyclerView Adapter for Android
 
+[![Release](https://jitpack.io/v/richardchien/common-recyclerview-adapter-android.svg)](https://jitpack.io/#richardchien/common-recyclerview-adapter-android)
+
 A reusable RecyclerView.Adapter.
 
 ## Usage
+
+Add the following to your module's `build.gradle`:
+
+```groovy
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+
+dependencies {
+    compile 'com.github.richardchien:common-recyclerview-adapter-android:v1.0.0'
+}
+```
+
+Then use it:
 
 ```java
 mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 CommonRecyclerViewAdapter<Bean> adapter = new CommonRecyclerViewAdapter<Bean>(this, mDataList, R.layout.list_item) {
     @Override
-    public void onItemViewAppear(ViewHolder holder, Bean bean) {
+    public void onPostBindViewHolder(ViewHolder holder, Bean bean) {
         holder.setViewText(R.id.tv_title, bean.getTitle())
                 .setViewText(R.id.tv_desc, bean.getDescription())
+                .setViewProperty(R.id.tv_desc, "text", bean.getDescription() + " Changed")
                 .setViewImageResource(R.id.iv_image, bean.getImageResId());
     }
 };

@@ -1,4 +1,4 @@
-package com.richardchien.android.commonrecyclerviewadapter.sample;
+package im.r_c.android.commonrecyclerviewadapter.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,11 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.richardchien.android.commonrecyclerviewadapter.CommonRecyclerViewAdapter;
-import com.richardchien.android.commonrecyclerviewadapter.ViewHolder;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import im.r_c.android.commonrecyclerviewadapter.CommonRecyclerViewAdapter;
+import im.r_c.android.commonrecyclerviewadapter.ViewHolder;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -31,9 +31,10 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         CommonRecyclerViewAdapter<Bean> adapter = new CommonRecyclerViewAdapter<Bean>(this, mDataList, R.layout.list_item) {
             @Override
-            public void onItemViewAppear(ViewHolder holder, Bean bean) {
+            public void onPostBindViewHolder(ViewHolder holder, Bean bean) {
                 holder.setViewText(R.id.tv_title, bean.getTitle())
                         .setViewText(R.id.tv_desc, bean.getDescription())
+                        .setViewProperty(R.id.tv_desc, "text", bean.getDescription() + " Changed")
                         .setViewImageResource(R.id.iv_image, bean.getImageResId());
             }
         };
