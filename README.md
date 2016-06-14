@@ -1,5 +1,6 @@
 # Common RecyclerView Adapter for Android
 
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
 [![Release](https://jitpack.io/v/richardchien/common-recyclerview-adapter-android.svg)](https://jitpack.io/#richardchien/common-recyclerview-adapter-android)
 
 A reusable RecyclerView.Adapter.
